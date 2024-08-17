@@ -36,6 +36,24 @@ export class BooksComponent {
     );
   }
 
+
+  deleteBook(id: number): void {
+    if (confirm('Are you sure you want to delete this book?')) {
+      this.bookService.deleteBook(id).subscribe({
+        next: () => {
+          // Remove the book from the list
+          this.books = this.books.filter(book => book.id !== id);
+          this.filteredBooks = this.filteredBooks.filter(book => book.id !== id);
+          console.log('Book deleted successfully:', id);
+        },
+        error: (err) => {
+          this.errorMessage = 'Failed to delete book';
+          console.error('Failed to delete book: ', err);
+        }
+      });
+    }
+  }
+
   onRowClick(book: Book): void {
     console.log('Row clicked:', book);
   }

@@ -1,0 +1,22 @@
+.button{
+    background: linear-gradient(145deg, #1a4ebc, #0056b3); /* Gradient background */
+    color: white;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 10px 20px; /* Increased padding for better look */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), /* Soft shadow */
+                -4px -4px 8px rgba(255, 255, 255, 0.3); /* Light shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+  
+.button:hover {
+    background: linear-gradient(145deg, #0056b3, #1a4ebc); /* Reverse gradient on hover */
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.3), /* Deeper shadow */
+                -6px -6px 12px rgba(255, 255, 255, 0.4); /* Light shadow for hover effect */
+    transform: translateY(-2px); /* Slight lift on hover */
+  }

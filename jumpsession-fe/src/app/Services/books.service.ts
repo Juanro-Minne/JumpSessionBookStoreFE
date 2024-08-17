@@ -15,7 +15,7 @@ export class BooksService {
 
   getBooks(): Observable<Book[]> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-
+    
     return this.httpClient.get<Book[]>(`${this.apiUrl}/get-books`, { headers })
       .pipe(
         map(response => {
@@ -27,4 +27,18 @@ export class BooksService {
         })
       );
   }
+
+  //deleting a book
+  deleteBook(id: number): Observable<void> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    
+    return this.httpClient.delete<void>(`${this.apiUrl}/delete-book/${id}`, { headers })
+      .pipe(
+        catchError(error => {
+          console.error('Error deleting book:', error);
+          return throwError('Error deleting book, please try again later.');
+        })
+      );
+  }
 }
+  
