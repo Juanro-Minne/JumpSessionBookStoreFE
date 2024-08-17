@@ -45,6 +45,18 @@ export class ProfileService {
   }
 
   assignBooks(checkOut : CheckOut) : Observable<CheckOut> {
-    return this.http.post<CheckOut>(`${this.apiUrl}/checkOut`, checkOut);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    return this.http.post<CheckOut>(`${this.apiUrl}/checked_out`, checkOut, { headers })
+    .pipe(
+      map(response => {
+        console.log('Assigned Book')
+        return response;
+      }),
+      catchError(error => {
+        console.error('Error assigning book:', error);
+        return throwError('Error assigning book, please try again later.');
+      })
+    );
   }
 }
