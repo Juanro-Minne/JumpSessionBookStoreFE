@@ -2,7 +2,13 @@
   <!-- ToDo: Create book -->
     <div class="card">
       <div class="card-body">
+        <div class="row">
+          <div class="col-md-2">
+            <button type="button" class="btn btn-primary" (click)="openAddBookModal()">Add a Book</button>
+          </div>
+          <div class="col-md-8 text-center">
         <h2 class="card-title text-center mb-4">Books List</h2>
+        </div>
         <div class="form-group mb-2">
           <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchTerm" (input)="filterBooks()">
         </div>
@@ -33,3 +39,10 @@
       </div>
     </div>
   </div>
+
+<!-- <app-create-user-modal *ngIf="isAddBookModalVisible" (close)="closeModal()"
+  (bookCreated)="onBookAdded(addedBook)">
+</app-create-user-modal> -->
+
+<app-create-book-modal *ngIf="isAddBookModalVisible" (close)="closeModal()"
+(bookCreated)="onBookAdded($event)"></app-create-book-modal>

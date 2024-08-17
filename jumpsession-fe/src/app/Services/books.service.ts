@@ -27,4 +27,21 @@ export class BooksService {
         })
       );
   }
+
+
+  createBook(book: Book): Observable<Book> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    
+    return this.httpClient.post<Book>(`${this.apiUrl}/create-book`, book, { headers })
+      .pipe(
+        map(response => {
+          return response; 
+        }),
+        catchError(error => {
+          console.error('Error adding book:', error);
+          return throwError(() => new Error('Error adding book, please try again later.'));
+        })
+      );
+  }
+
 }

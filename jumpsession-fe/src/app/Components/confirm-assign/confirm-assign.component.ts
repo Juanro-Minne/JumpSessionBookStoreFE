@@ -24,7 +24,7 @@ export class ConfirmAssignComponent {
     this.selectedBooks.forEach(book => {
       newCheckouts.push({
         id: 0,
-        bookId: book.id,
+        bookId: book.id as number,
         userId: this.navService.selectedProfile?.id as number
       });
     });

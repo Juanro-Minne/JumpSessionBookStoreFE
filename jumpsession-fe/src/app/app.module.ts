@@ -13,6 +13,7 @@ import { AssignComponent } from './Components/assign/assign.component';
 import { BookAlocationModalComponent } from './Components/Modals/book-alocation-modal/book-alocation-modal.component';
 import { CreateUserModalComponent } from './Components/Modals/create-user-modal/create-user-modal.component';
 import { ConfirmAssignComponent } from './Components/confirm-assign/confirm-assign.component';
+import { CreateBookModalComponent } from './Components/Modals/create-book-modal/create-book-modal.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ConfirmAssignComponent } from './Components/confirm-assign/confirm-assi
     AssignComponent,
     BookAlocationModalComponent,
     CreateUserModalComponent,
-    ConfirmAssignComponent
+    ConfirmAssignComponent,
+    CreateBookModalComponent
   ],
   imports: [
     BrowserModule,
